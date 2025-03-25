@@ -1,19 +1,22 @@
 import { Trim } from 'class-sanitizer';
-import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
-export class LoginDTO {
-	@IsEmail({}, { message: 'Provided Email is not valid' })
+import { IsNotEmpty, IsString } from 'class-validator';
+import { IsCustomEmail } from '../utils';
+export class GenerateOTPForLogin {
+	@IsCustomEmail({ message: 'Provided Email is not valid' })
 	@IsNotEmpty()
 	@Trim()
 	email: string | undefined;
-	@IsPhoneNumber()
-	@IsString()
-	@IsNotEmpty()
-	@Trim()
-	phoneNumber: string | undefined;
 }
 
-export class VerifyOTP {
-	@IsEmail({}, { message: 'Provided Email is not valid' })
+export class GenerateOTPForRegistration {
+	@IsCustomEmail({ message: 'Provided Email is not valid' })
+	@IsNotEmpty()
+	@Trim()
+	email: string | undefined;
+}
+
+export class VerifyOTPForLogin {
+	@IsCustomEmail({ message: 'Provided Email is not valid' })
 	@IsNotEmpty()
 	@Trim()
 	email: string | undefined;
@@ -22,3 +25,31 @@ export class VerifyOTP {
 	@Trim()
 	otp: string | undefined;
 }
+
+export class VerifyOTPForRegistration {
+	@IsCustomEmail({ message: 'Provided Email is not valid' })
+	@IsNotEmpty()
+	@Trim()
+	email: string | undefined;
+	@IsString()
+	@IsNotEmpty()
+	@Trim()
+	otp: string | undefined;
+}
+
+export class SetNewPasswordDTO {
+	@IsCustomEmail({ message: 'Provided Email is not valid' })
+	@IsNotEmpty()
+	@Trim()
+	email: string | undefined;
+	@IsString()
+	@IsNotEmpty()
+	@Trim()
+	newPassword: string | undefined;
+	@IsString()
+	@IsNotEmpty()
+	@Trim()
+	confirmCode: string | undefined;
+}
+
+

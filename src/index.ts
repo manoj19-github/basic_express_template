@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import { errorHandler, notFound } from './http/middlewares/errorHandler.middleware';
 import RoutesMain from './routes';
+import { configMain } from './config';
 class ExpressApp {
 	private app: Application;
 	private PORT: unknown;
@@ -36,7 +37,9 @@ class ExpressApp {
 	}
 	public listen(): void {
 		// connectDB();
+
 		this.app.listen(this.PORT, () => {
+			configMain.connectDatabase();
 			console.log(`Server is listening on  port : ${this.PORT}`);
 		});
 	}

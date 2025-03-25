@@ -1,0 +1,27 @@
+2025-03-24 01:10:52 error: uncaughtException: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+SequelizeConnectionError: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at Client._connectionCallback (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\sequelize\src\dialects\postgres\connection-manager.js:200:20)
+    at Client._handleErrorWhileConnecting (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:336:19)
+    at Client._handleErrorEvent (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:346:19)
+    at Connection.emit (node:events:518:28)
+    at Connection.emit (node:domain:489:12)
+    at Client._handleAuthSASLContinue (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:284:23)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-03-24 01:10:52 error: uncaughtException: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+SequelizeConnectionError: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at Client._connectionCallback (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\sequelize\src\dialects\postgres\connection-manager.js:200:20)
+    at Client._handleErrorWhileConnecting (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:336:19)
+    at Client._handleErrorEvent (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:346:19)
+    at Connection.emit (node:events:518:28)
+    at Connection.emit (node:domain:489:12)
+    at Client._handleAuthSASLContinue (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:284:23)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-03-24 01:10:52 error: uncaughtException: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+SequelizeConnectionError: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string
+    at Client._connectionCallback (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\sequelize\src\dialects\postgres\connection-manager.js:200:20)
+    at Client._handleErrorWhileConnecting (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:336:19)
+    at Client._handleErrorEvent (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:346:19)
+    at Connection.emit (node:events:518:28)
+    at Connection.emit (node:domain:489:12)
+    at Client._handleAuthSASLContinue (C:\Users\santr\santra-developers\karyam\karyam-auth\node_modules\pg\lib\client.js:284:23)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)

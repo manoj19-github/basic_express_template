@@ -1,3 +1,5 @@
+import bcryptjs from 'bcryptjs';
+import { registerDecorator, ValidationOptions } from 'class-validator';
 import jwt from 'jsonwebtoken';
 import { createTransport, SendMailOptions } from 'nodemailer';
 export class UtilsMain {
@@ -72,4 +74,43 @@ export class UtilsMain {
 		});
 		return otp;
 	}
+	static async hashedPassword(password: string) {
+		const salt = await bcryptjs.genSalt(10);
+		return await bcryptjs.hash(password, salt);
+	}
+	static async authenticatePassword({ password, hashedPassword }: { password: string; hashedPassword: string }) {
+		return await bcryptjs.compare(password, hashedPassword);
+	}
+}
+
+export const SERVICES = ['AUTHSERVICE'];
+
+export enum APIMETHODS {
+	get = 'get',
+	post = 'pos',
+	put = 'put',
+	delete = 'delete'
+}
+
+export function IsCustomEmail(validationOptions: ValidationOptions) {
+	return function (object: Object, propertyName: string) {
+		registerDecorator({
+			name: 'isCustomEmail',
+			target: object.constructor,
+			propertyName: propertyName,
+			constraints: [],
+			options: validationOptions,
+			validator: {
+				validate(value) {
+					// Custom regex for email validation
+					const emailRegex =
+						/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					return typeof value === 'string' && emailRegex.test(value);
+				},
+				defaultMessage(args) {
+					return `${args?.property} must be a valid email address`;
+				}
+			}
+		});
+	};
 }

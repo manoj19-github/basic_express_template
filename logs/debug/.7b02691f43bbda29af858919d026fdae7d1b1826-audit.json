@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\santr\\santra-developers\\karyam\\karyam-auth\\logs\\debug\\.7b02691f43bbda29af858919d026fdae7d1b1826-audit.json",
+    "files": [
+        {
+            "date": 1742758852913,
+            "name": "C:\\Users\\santr\\santra-developers\\karyam\\karyam-auth\\logs\\debug\\2025-03-24.log",
+            "hash": "3784af040c82449d24960da5e3b0f9a1a34e9153efdb14fc997542a86778ff3b"
+        }
+    ],
+    "hashType": "sha256"
+}

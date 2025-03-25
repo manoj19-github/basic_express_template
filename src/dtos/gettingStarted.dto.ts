@@ -1,9 +1,8 @@
 import { Trim } from 'class-sanitizer';
-import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 export class GettingStartedDTO {
-	@IsPhoneNumber()
-	@IsString()
+	@IsEmail({}, { message: 'Provided Email is not valid' })
 	@IsNotEmpty()
 	@Trim()
-	phoneNumber: string | undefined;
+	email: string | undefined;
 }
