@@ -1,0 +1,1 @@
+export const ENVIRONMENT_FILE_PATH=".env.dev"

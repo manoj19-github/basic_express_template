@@ -1,0 +1,9 @@
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-17 11:16:39"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-17 11:46:59"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 12:51:57"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-17 13:45:32"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 15:14:16"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 15:16:32"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 15:45:23"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 16:02:51"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-17 16:59:05"}

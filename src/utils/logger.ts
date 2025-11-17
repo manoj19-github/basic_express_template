@@ -1,73 +1,89 @@
-
+import { ENVIRONMENT_FILE_PATH } from '../environment';
 import { config } from 'dotenv';
 import { existsSync, mkdirSync } from 'fs';
 import { join } from 'node:path';
 import winston from 'winston';
 import winstonDaily from 'winston-daily-rotate-file';
-config({ path: `.env.dev` });
 
-console.log("process.env.NODE_ENV >>>> ",process.env.NODE_ENV);
+config({ path: ENVIRONMENT_FILE_PATH });
 
+console.log('process.env.NODE_ENV >>>> ', process.env.NODE_ENV);
 
-// logs dir
+// Logs root directory
 const logDir: string = join(__dirname, process.env.LOG_DIR!);
 
-if (!existsSync(logDir)) {
-  mkdirSync(logDir);
+if (!existsSync(logDir)) mkdirSync(logDir);
+
+// Function to ensure subfolder exists
+function ensureDir(subDir: string) {
+	const fullPath = join(logDir, subDir);
+	if (!existsSync(fullPath)) mkdirSync(fullPath, { recursive: true });
+	return fullPath;
 }
 
-// Define log format
-const logFormat = winston.format.printf(({ timestamp, level, message }) => `${timestamp} ${level}: ${message}`);
+// Ensure subfolders exist
+ensureDir('debug');
+ensureDir('error');
+ensureDir('database');
 
-
-
-
-/*
- * Log Level
- * error: 0, warn: 1, info: 2, http: 3, verbose: 4, debug: 5, silly: 6
- */
-const logger = winston.createLogger({
-  format: winston.format.combine(
-    winston.format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss',
-    }),
-    logFormat,
-  ),
-  transports: [
-    // debug log setting
-    new winstonDaily({
-      level: 'debug',
-      datePattern: 'YYYY-MM-DD',
-      dirname: logDir + '/debug', // log file /logs/debug/*.log in save
-      filename: `%DATE%.log`,
-      maxFiles: 30, // 30 Days saved
-      json: true,
-      zippedArchive: true,
-    }),
-    // error log setting
-    new winstonDaily({
-      level: 'error',
-      datePattern: 'YYYY-MM-DD',
-      dirname: logDir + '/error', // log file /logs/error/*.log in save
-      filename: `%DATE%.log`,
-      maxFiles: 30, // 30 Days saved
-      handleExceptions: true,
-      json: true,
-      zippedArchive: true,
-    }),
-  ],
-});
-
-logger.add(
-  new winston.transports.Console({
-    format: winston.format.combine(winston.format.splat(), winston.format.colorize()),
-  }),
+// Define log format for console
+const consoleFormat = winston.format.combine(
+	winston.format.colorize(),
+	winston.format.printf(({ timestamp, level, message }) => `${timestamp} ${level}: ${message}`)
 );
 
+// Define file format
+const fileFormat = winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), winston.format.json());
+
+const logger = winston.createLogger({
+	format: fileFormat,
+	transports: [
+		// Debug logs
+		new winstonDaily({
+			level: 'debug',
+			datePattern: 'YYYY-MM-DD',
+			dirname: join(logDir, 'debug'),
+			filename: `%DATE%.log`,
+			maxFiles: 30,
+			zippedArchive: true
+		}),
+
+		// Error logs
+		new winstonDaily({
+			level: 'error',
+			datePattern: 'YYYY-MM-DD',
+			dirname: join(logDir, 'error'),
+			filename: `%DATE%.log`,
+			maxFiles: 30,
+			handleExceptions: true,
+			zippedArchive: true
+		}),
+
+		// Database logs (filter using 'label' property)
+		new winstonDaily({
+			level: 'debug',
+			datePattern: 'YYYY-MM-DD',
+			dirname: join(logDir, 'database'),
+			filename: `%DATE%.log`,
+			maxFiles: 30,
+			zippedArchive: true,
+			format: winston.format.combine(winston.format((info) => (info.label === 'database' ? info : false))(), winston.format.json())
+		})
+	]
+});
+
+// Console output
+logger.add(
+	new winston.transports.Console({
+		format: winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), consoleFormat)
+	})
+);
+
+// Stream for morgan or other middleware
 const stream = {
-  write: (message: string) => {
-    logger.info(message.substring(0, message.lastIndexOf('\n')));
-  },
+	write: (message: string) => {
+		logger.info(message.trim());
+	}
 };
 
 export { logger, stream };

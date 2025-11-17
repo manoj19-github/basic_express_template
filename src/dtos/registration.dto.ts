@@ -1,18 +1,23 @@
 import { Trim } from 'class-sanitizer';
-import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString, MinLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsPhoneNumber, IsString, MinLength } from 'class-validator';
+import { IssantraNotesEmail } from './customEmail.decorator';
 export class RegistrationDTO {
 	@IsString()
 	@Trim()
 	@IsNotEmpty()
 	@MinLength(4, { message: 'Name should be minimum of 4 characters' })
 	name: string | undefined;
-	@IsEmail({}, { message: 'Provided Email is not valid' })
+	@IssantraNotesEmail()
 	@IsNotEmpty()
 	@Trim()
 	email: string | undefined;
-	@IsPhoneNumber()
 	@IsString()
-	@IsNotEmpty()
 	@Trim()
-	phoneNumber: string | undefined;
+	@IsNotEmpty()
+	@MinLength(6, { message: 'Password should be minimum of 6 characters' })
+	password: string | undefined;
+	@IsString()
+	@IsOptional()
+	@Trim()
+	deviceId?: string | undefined;
 }

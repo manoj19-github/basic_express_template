@@ -1,24 +1,18 @@
-FROM node:14
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json .
 
+COPY package*.json ./
 
+RUN npm install
 
-
-RUN npm install -f && npm install typescript@4.5.2
-
-
-# RUN npm run build
 
 COPY . .
 
 
+RUN npm run build
 
-EXPOSE 3000
+EXPOSE 5000
 
- #CMD ["node","index.js"]
-CMD ["npm", "run", "start"]
-# CMD [ "node", "index.js" ]
-# CMD node index.js
+CMD ["npm", "run", "dev"]

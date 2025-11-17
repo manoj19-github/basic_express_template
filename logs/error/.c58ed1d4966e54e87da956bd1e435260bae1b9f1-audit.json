@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\santr\\santra-developers\\santranotes\\backend\\logs\\error\\.c58ed1d4966e54e87da956bd1e435260bae1b9f1-audit.json",
+    "files": [
+        {
+            "date": 1763204455331,
+            "name": "C:\\Users\\santr\\santra-developers\\santranotes\\backend\\logs\\error\\2025-11-15.log",
+            "hash": "e0c1b76b3b76dd9237c845ae6edc9441ce52f329691c5af48dfdb038d4e98a28"
+        },
+        {
+            "date": 1763234886095,
+            "name": "C:\\Users\\santr\\santra-developers\\santranotes\\backend\\logs\\error\\2025-11-16.log",
+            "hash": "35a592b3014c489905421cd2f15e6933ec2e18d00210d785384762907cb6428c"
+        },
+        {
+            "date": 1763358334685,
+            "name": "C:\\Users\\santr\\santra-developers\\santranotes\\backend\\logs\\error\\2025-11-17.log",
+            "hash": "0fd8cd624500487cdd308bfb88e4c96eea4c35cf4a4b51d59bc8f4c1c99233da"
+        }
+    ],
+    "hashType": "sha256"
+}

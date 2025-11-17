@@ -1,0 +1,17 @@
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 16:34:27"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-15 16:54:18"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 16:54:52"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 18:07:37"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 18:08:17"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 18:08:28"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-15 18:10:50"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 19:14:35"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:06:21"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:07:17"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:11:32"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:18:18"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:37:11"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:38:15"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:41:06"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2025-11-15 20:46:25"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2025-11-15 21:22:05"}
