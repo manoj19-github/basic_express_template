@@ -19,6 +19,7 @@ export class UserController {
 		try {
 			await session.startTransaction();
 			const _result = await UserAuthService.registerUser({ request, session });
+			console.log('_result: ', _result);
 			CookieUtils.setAuthCookies(response as any, {
 				accessToken: _result.accessToken,
 				refreshToken: _result.refreshToken,
@@ -32,6 +33,7 @@ export class UserController {
 				data: _result
 			});
 		} catch (error) {
+			console.log('error: ', error);
 			if (session) await session.abortTransaction();
 			next(error);
 		} finally {

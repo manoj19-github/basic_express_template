@@ -65,8 +65,8 @@ class UserAuthService {
 			deviceId,
 			email: newUser.email
 		};
-		const accessToken = AuthUtils.generateAccessToken({ ...tokenPayload, expires: AuthUtils.JWT_ACCESS_TOKEN_EXPIRES });
-		const refreshToken = AuthUtils.generateRefreshToken({ ...tokenPayload, expires: AuthUtils.JWT_REFRESH_TOKEN_EXPIRES });
+		const accessToken = AuthUtils.generateAccessToken(tokenPayload);
+		const refreshToken = AuthUtils.generateRefreshToken(tokenPayload);
 		await AuthTokenModel.deactivateAllUserAuthTokens(newUser._id, session);
 		await AuthTokenModel.createAuthToken(
 			{

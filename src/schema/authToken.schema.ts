@@ -141,4 +141,55 @@ AuthTokenSchema.statics.findActiveAuthTokensByUser = function(
   }).sort({ createdAt: -1 }).exec();
 };
 
+AuthTokenSchema.statics.createAuthToken = async function (
+	AuthTokenData: {
+		userId: mongoose.Types.ObjectId;
+		accessAuthToken: string;
+		refreshAuthToken: string;
+		deviceId: string;
+		deviceInfo: {
+			userAgent: string;
+			ipAddress: string;
+			acceptLanguage: string;
+			platform: string;
+		};
+	},
+	session?: ClientSession
+): Promise<IAuthToken> {
+	const { userId, accessAuthToken, refreshAuthToken, deviceId, deviceInfo } = AuthTokenData;
+
+	const accessAuthTokenExpires = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+	const refreshAuthTokenExpires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
+
+	const doc = new this({
+		userId,
+		accessAuthToken,
+		refreshAuthToken,
+		deviceId,
+		deviceInfo,
+		accessAuthTokenExpires,
+		refreshAuthTokenExpires
+	});
+
+	if (session) {
+		await doc.save({ session });
+	} else {
+		await doc.save();
+	}
+
+	return doc;
+};
+
+AuthTokenSchema.statics.deactivateAllUserAuthTokens = async function (
+	userId: mongoose.Types.ObjectId,
+	session?: ClientSession
+): Promise<void> {
+	if (session) {
+		await this.updateMany({ userId, isActive: true }, { isActive: false }).session(session);
+	} else {
+		await this.updateMany({ userId, isActive: true }, { isActive: false });
+	}
+};
+
+
 export default mongoose.model<IAuthToken, IAuthTokenModel>('AuthToken', AuthTokenSchema );
