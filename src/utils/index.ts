@@ -114,3 +114,37 @@ export function IsCustomEmail(validationOptions: ValidationOptions) {
 		});
 	};
 }
+
+export enum MatchStatus {
+	scheduled = "scheduled",
+	live = "live",
+	finished = "finished"
+}
+
+
+
+
+export const getMatchStatus = (
+	startTime: Date | string,
+	endTime: Date | string
+): MatchStatus => {
+	const now = new Date();
+
+	const start = typeof startTime === 'string' ? new Date(startTime) : startTime;
+	const end = typeof endTime === 'string' ? new Date(endTime) : endTime;
+
+	// ❌ invalid date guard
+	if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+		throw new Error('Invalid date provided to getMatchStatus');
+	}
+
+	if (now < start) {
+		return MatchStatus.scheduled;
+	}
+
+	if (now >= start && now <= end) {
+		return MatchStatus.live;
+	}
+
+	return MatchStatus.finished;
+};

@@ -5,6 +5,7 @@
 	"author": "Manoj Santra",
 	"license": "MIT",
 	"dependencies": {
+		"@prisma/client": "^7.7.0",
 		"bcrypt": "^6.0.0",
 		"bcryptjs": "^3.0.2",
 		"class-sanitizer": "^1.0.1",
@@ -16,6 +17,7 @@
 		"cors": "^2.8.5",
 		"cross-env": "^7.0.3",
 		"dotenv": "^16.0.3",
+		"ejs": "^5.0.2",
 		"express": "^4.18.2",
 		"helmet": "^6.0.1",
 		"jsonwebtoken": "^9.0.2",
@@ -26,13 +28,15 @@
 		"passport-google-oauth20": "^2.0.0",
 		"passport-jwt": "^4.0.1",
 		"pg": "^8.14.1",
+		"prisma": "^7.7.0",
 		"sequelize": "^6.37.6",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.1",
 		"uuid": "^13.0.0",
 		"validator": "^13.12.0",
 		"winston": "^3.17.0",
-		"winston-daily-rotate-file": "^5.0.0"
+		"winston-daily-rotate-file": "^5.0.0",
+		"ws": "^8.20.0"
 	},
 	"scripts": {
 		"test": "eslint --ext .ts --ignore-path .gitignore .",
@@ -61,6 +65,7 @@
 		"@types/swagger-jsdoc": "^6.0.4",
 		"@types/swagger-ui-express": "^4.1.8",
 		"@types/validator": "^13.12.2",
+		"@types/ws": "^8.18.1",
 		"@typescript-eslint/eslint-plugin": "^5.18.0",
 		"@typescript-eslint/parser": "^5.18.0",
 		"eslint": "^8.12.0",

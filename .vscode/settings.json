@@ -1,7 +1,7 @@
 {
     // Theme
     "workbench.colorTheme": "Dracula",
-  
+
     // config related to code formatting
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
@@ -24,5 +24,8 @@
     "emmet.triggerExpansionOnTab": true,
     "emmet.includeLanguages": {
       "javascript": "javascriptreact"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
     }
   }

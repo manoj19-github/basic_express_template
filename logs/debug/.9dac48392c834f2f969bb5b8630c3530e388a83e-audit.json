@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\santr\\SANTRADEVS\\websocket_learn\\logs\\debug\\.9dac48392c834f2f969bb5b8630c3530e388a83e-audit.json",
+    "files": [
+        {
+            "date": 1776103941304,
+            "name": "C:\\Users\\santr\\SANTRADEVS\\websocket_learn\\logs\\debug\\2026-04-13.log",
+            "hash": "398e6446178e807296fe267cf328c64fa6fcf84803a61a67df323b6d2498e3f1"
+        },
+        {
+            "date": 1776105473427,
+            "name": "C:\\Users\\santr\\SANTRADEVS\\websocket_learn\\logs\\debug\\2026-04-14.log",
+            "hash": "5a5308f29111e9327988c329b5411a4b49edb40bc214b7712e87b61eea99799f"
+        },
+        {
+            "date": 1776306096470,
+            "name": "C:\\Users\\santr\\SANTRADEVS\\websocket_learn\\logs\\debug\\2026-04-16.log",
+            "hash": "1a33e8dcb3cb92b18ec0f1dc6f0662ace51e96e7ae17b09830090738946fd11b"
+        }
+    ],
+    "hashType": "sha256"
+}

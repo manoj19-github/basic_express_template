@@ -1,10 +1,10 @@
 import { Application } from 'express';
 import { Routes } from '../interfaces/routes.interface';
-import { UserRoute } from './user.route';
+import { MatchRoute } from './match.route';
 
 class RoutesMain {
-	private routes: Routes[] = [new UserRoute()]; // add all routes  here
-	constructor() {}
+	private routes: Routes[] = [new MatchRoute()]; // add all routes  here
+	constructor() { }
 	public initializeAllRoutes(app: Application) {
 		this.routes.forEach((route) => {
 			app.use('/api/', route.router);
