@@ -4,3 +4,6 @@
 {"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2026-04-16 07:55:03"}
 {"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2026-04-16 07:55:28"}
 {"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2026-04-16 07:55:46"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2026-04-16 07:59:44"}
+{"label":"database","level":"warn","message":"⚠️ MongoDB disconnected. Attempting to reconnect...","timestamp":"2026-04-16 08:00:30"}
+{"label":"database","level":"debug","message":"✅ MongoDB connected successfully","timestamp":"2026-04-16 08:05:35"}
