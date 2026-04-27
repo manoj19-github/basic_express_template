@@ -1,0 +1,39 @@
+import { NextFunction, Request, Response } from 'express';
+
+import { searchPageSize } from '../../utils/constants.util';
+import { AttendanceService } from '../services/attendance.service';
+
+export class AttendanceController {
+	static async getHistory(req: Request, res: Response, next: NextFunction) {
+		try {
+			const userId = (req as any).user.userId;
+			const page = Number(req.query.page) || 1;
+			const limit = Number(req.query.limit) || searchPageSize;
+
+			const data = await AttendanceService.getHistory(userId, page, limit);
+
+			return res.status(200).json({ success: true, data });
+		} catch (error) {
+			next(error);
+		}
+	}
+
+	static async getReport(req: Request, res: Response, next: NextFunction) {
+		try {
+			const userId = (req as any).user.userId;
+			const { startDate, endDate } = req.query as { startDate: string; endDate: string };
+
+			if (!startDate || !endDate) {
+				return res.status(400).json({
+					success: false,
+					message: 'startDate and endDate are required'
+				});
+			}
+
+			const data = await AttendanceService.getReport(userId, startDate, endDate);
+			return res.status(200).json({ success: true, data });
+		} catch (error) {
+			next(error);
+		}
+	}
+}

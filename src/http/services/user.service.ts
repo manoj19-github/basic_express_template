@@ -1,12 +1,10 @@
-import { ClientSession } from 'mongoose';
-import UserModel, { IUser } from '../../schema/user.schema';
-import { HttpException } from '../exceptions/http.exceptions';
 import { Request } from 'express';
-import { DeviceUtils } from '../../utils/device.util';
-import AuthTokenModel from '../../schema/authToken.schema';
+import { ClientSession } from 'mongoose';
+import AuthTokenModel from '../../models/authToken.schema';
+import UserModel from '../../models/user.schema';
 import { AuthUtils } from '../../utils/auth.util';
-import { RequestWithUser } from '@/interfaces/auth.interface';
-import e from 'cors';
+import { DeviceUtils } from '../../utils/device.util';
+import { HttpException } from '../exceptions/http.exceptions';
 
 class UserAuthService {
 	static async loginUser({ request, session }: { request: Request; session: ClientSession }): Promise<any> {
@@ -94,7 +92,7 @@ class UserAuthService {
 		};
 	}
 	static async refreshToken({ request, session }: { request: Request; session: ClientSession }): Promise<any> {
-		 const clientRefreshToken =  request?.get('Refresh-Token') || "";
+		const clientRefreshToken = request?.get('Refresh-Token') || "";
 		const clientDeviceId = request.get("Device-Id");
 		const userAgent = request.get('User-Agent') || 'Unknown';
 		const ipAddress = request.ip || 'Unknown';

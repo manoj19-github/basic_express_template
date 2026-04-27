@@ -15,8 +15,8 @@ import morgan from "morgan";
 
 import { connectDB } from "./config/dbConfig";
 import { errorHandler, notFound } from "./http/middlewares/errorHandler.middleware";
+import { IUser } from "./models/user.schema";
 import RoutesMain from "./routes";
-import { IUser } from "./schema/user.schema";
 import initializeWebSocket from "./websocket";
 
 // Extend Express Request

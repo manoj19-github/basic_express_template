@@ -1,6 +1,6 @@
 import { Application } from 'express';
 import { Routes } from '../interfaces/routes.interface';
-import { MatchRoute } from './match.route';
+import { MatchRoute } from './auth.route';
 
 class RoutesMain {
 	private routes: Routes[] = [new MatchRoute()]; // add all routes  here

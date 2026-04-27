@@ -1,6 +1,6 @@
 
 import { startSession } from "../../config/dbConfig";
-import { MatchModel } from "../../schema/match.schema";
+import { MatchModel } from "../../models/match.schema";
 import { getMatchStatus } from "../../utils";
 
 import { NextFunction, Request, Response } from "express";
